@@ -1,11 +1,19 @@
-import React from 'react'
+import { Box } from '@mui/material';
+import React from 'react';
 import '../App.css';
+import { SectionStyle } from '../Styles/Styles';
 
 function Home() {
     return (
-        <div className="Home">
-            <h1>Welcome to my CV webpage!</h1>
-        </div>
+        <Box
+            component='section'
+            sx={{
+                ...SectionStyle,
+                margin: 'auto'
+            }}
+        >
+            <h1>Ez a homepage</h1>
+        </Box>
     );
 
 }

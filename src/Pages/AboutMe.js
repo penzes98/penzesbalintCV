@@ -1,12 +1,19 @@
-import React from 'react'
-//import Sidebar from "./Components/Sidebar";
+import { Box } from '@mui/material';
+import React from 'react';
 import '../App.css';
+import { SectionStyle } from '../Styles/Styles';
 
 function AboutMe() {
   return (
-    <div>
-      <h1>This is the Aboutme subpage.</h1>
-    </div>
+    <Box
+      component='section'
+      sx={{
+        ...SectionStyle,
+        margin: 'auto'
+      }}
+    >
+      <h1>Ez az Aboutme section</h1>
+    </Box>
   )
 }
 
