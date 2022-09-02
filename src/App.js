@@ -1,19 +1,20 @@
 import Sidebar from "./Components/Sidebar";
 import Footer from "./Components/Footer";
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./Pages/Home";
 import Schools from "./Pages/Schools";
 import Experiences from "./Pages/Experiences";
 import AboutMe from "./Pages/AboutMe";
+import ResponsiveSidebar from "./Components/ResponsiveSidebar";
 
 function App() {
 
   const location = useLocation();
 
   return (
-    <>
-      <Sidebar />
+    <ResponsiveSidebar pageComponent={location}>
+      {/* <Sidebar /> */}
 
       <Routes location={location}>
         <Route path='/home' element={<Home />} />
@@ -23,7 +24,7 @@ function App() {
       </Routes>
 
       <Footer />
-    </>
+    </ResponsiveSidebar>
   );
 
 }
