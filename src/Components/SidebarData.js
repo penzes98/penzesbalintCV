@@ -5,25 +5,25 @@ import InfoIcon from '@mui/icons-material/Info';
 import WorkIcon from '@mui/icons-material/Work';
 export const SidebarData = [
     {
-        title:"Home",
+        title: "Home",
         icon: <HomeIcon />,
         path: "/home"
     },
     {
-        title:"Schools",
+        title: "Schools",
         icon: <SchoolIcon />,
         path: "/schools"
     },
     {
-        title:"Experiences",
+        title: "Experiences",
         icon: <WorkIcon />,
         path: "/experiences"
     },
     {
-        title:"About Me",
+        title: "About Me",
         icon: <InfoIcon />,
-        path: "/aboutMe"
+        path: "/about-me"
     },
-    
+
 ]
 
