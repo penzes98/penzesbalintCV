@@ -13,7 +13,8 @@ function App() {
   const location = useLocation();
 
   return (
-    <ResponsiveSidebar pageComponent={location}>
+    <>
+      <ResponsiveSidebar pageComponent={location} />
       {/* <Sidebar /> */}
 
       <Routes location={location}>
@@ -24,7 +25,7 @@ function App() {
       </Routes>
 
       <Footer />
-    </ResponsiveSidebar>
+    </>
   );
 
 }

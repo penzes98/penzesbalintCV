@@ -1,9 +1,15 @@
+:root {
+  --primary-color: #1976d2;
+  --hover-color: #13508d;
+  --light-color: #fff;
+}
+
 .App {
   width: 100vw;
   height: 100vh;
 }
 
-body{
+body {
   margin: 0;
   padding: 0;
 }
@@ -12,15 +18,20 @@ body{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif !important;
 }
 
-.Sidebar{
+a {
+  text-decoration: none;
+}
+
+.Sidebar {
   width: 250px;
   height: 100%;
   background-color: #2F4050;
 }
 
-.SidebarList{
+.SidebarList {
   height: auto;
   padding: 0;
   width: 100%;
@@ -40,22 +51,36 @@ body{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.SidebarList .row:hover{
+.SidebarList .row:hover {
   cursor: pointer;
   background-color: #293846;
 }
 
-.SidebarList #active{
+.SidebarList #active {
   background-color: #293846;
   margin-left: 8px;
   padding-left: 8px;
 }
-.row #icon{
+
+.row #icon {
   flex: 30%;
   display: grid;
   place-items: center;
 }
 
-.row #title{
+.row #title {
   flex: 70%;
+}
+
+.sidebar-link {
+  color: var(--primary-color);
+  background-color: var(--light-color);
+  transition: all .2s ease;
+}
+
+
+.sidebar-link:hover {
+  color: var(--light-color);
+  background-color: var(--primary-color);
+  transform: translateX(25px);
 }

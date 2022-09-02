@@ -5,17 +5,14 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Home from '../Pages/Home';
+import { SidebarData } from './SidebarData';
+import { Link } from 'react-router-dom';
+import { Colors } from '../Styles/Styles';
 
 const drawerWidth = 240;
 
@@ -27,34 +24,37 @@ export default function ResponsiveSidebar(props, { pageComponent }) {
         setMobileOpen(!mobileOpen);
     };
 
+    const { primary, light, dark, lightDark } = Colors;
+
     const drawer = (
         <div>
             <Toolbar />
             <Divider />
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
+            <List
+                sx={{ border: 'none', p: 0 }}
+            >
+                {
+                    //sidebar datat bemappelem
+                    SidebarData.map((page) => {
+
+                        //gyors destructure a bejárt objectből
+                        const { title, icon, path } = page;
+
+                        //router linkeket adok vissza a bejárást követően
+                        return (
+
+                            <Link
+                                to={path}
+                            >
+                                <ListItem className='row sidebar-link' sx={{ padding: 2, borderBottom: '1px solid rgba(0, 0, 0, 0.12)' }}>
+                                    <Box component='div' id='icon'>{icon}</Box>
+                                    <Box component='div' id='title'>{title}</Box>
+                                </ListItem>
+                            </Link>
+                        )
+                    })
+
+                }
             </List>
         </div>
     );
@@ -82,7 +82,7 @@ export default function ResponsiveSidebar(props, { pageComponent }) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Responsive drawer
+                        Pénzes Bálint CV
                     </Typography>
                 </Toolbar>
             </AppBar>
