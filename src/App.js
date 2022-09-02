@@ -1,27 +1,31 @@
 import Sidebar from "./Components/Sidebar";
+import Footer from "./Components/Footer";
 import './App.css';
-//import { BrowserRouter as Router, Route } from "react-router-dom";
-//import Home from "./Pages/Home";
-//import Schools from "./Pages/Schools";
-//import Experiences from "./Pages/Experiences";
-//import AboutMe from "./Pages/AboutMe";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import Home from "./Pages/Home";
+import Schools from "./Pages/Schools";
+import Experiences from "./Pages/Experiences";
+import AboutMe from "./Pages/AboutMe";
 
 function App() {
+
+  const location = useLocation();
+
   return (
-    <div className="App">
+    <>
       <Sidebar />
-      {/*<Router>
-        <Sidebar />
-          /*<Route path='/home' component={Home}/>
-          <Route path='/schools' component={Schools}/>
-          <Route path='/experiences' component={Experiences}/>
-          <Route path='/aboutMe' component={AboutMe}/>
-      </Router>*/}
-    
-      <footer>Pénzes Bálint 2022</footer> 
-    </div>
+
+      <Routes location={location}>
+        <Route path='/home' element={<Home />} />
+        <Route path='/schools' element={<Schools />} />
+        <Route path='/experiences' element={<Experiences />} />
+        <Route path='/about-me' element={<AboutMe />} />
+      </Routes>
+
+      <Footer />
+    </>
   );
-  
+
 }
 
 export default App;

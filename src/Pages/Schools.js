@@ -5,7 +5,7 @@ import '../App.css';
 function Schools() {
   return (
     <div>
-      
+      <h1>This is the School subpage.</h1>
     </div>
   )
 }
