@@ -1,4 +1,3 @@
-import Sidebar from "./Components/Sidebar";
 import Footer from "./Components/Footer";
 import './App.css';
 import { Routes, Route, useLocation } from "react-router-dom";
