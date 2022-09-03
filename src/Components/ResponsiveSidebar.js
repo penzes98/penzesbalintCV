@@ -39,7 +39,8 @@ export default function ResponsiveSidebar(props, { pageComponent }) {
         <div>
             <Toolbar>
                 <Box component='div' sx={{ display: 'flex', alignItems: 'center' }}>
-                    <InputLabel className='dark-mode-label' sx={{ p: 2, cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1 }}>NightMode
+                    <InputLabel className='dark-mode-label' sx={{ p: 2, cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1 }}>
+                        Dark Mode :
                         <Box
                             component='span'
                             className='dark-mode-icon'
@@ -77,6 +78,7 @@ export default function ResponsiveSidebar(props, { pageComponent }) {
 
                             <Link
                                 to={path}
+                                onClick={handleDrawerToggle}
                             >
                                 <ListItem className='row sidebar-link' sx={{ padding: 2, borderBottom: '1px solid rgba(0, 0, 0, 0.12)' }}>
                                     <Box component='div' id='icon'>{icon}</Box>
@@ -114,7 +116,7 @@ export default function ResponsiveSidebar(props, { pageComponent }) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Pénzes Bálint CV
+                        CV of Bálint Pénzes
                     </Typography>
                 </Toolbar>
             </AppBar>
