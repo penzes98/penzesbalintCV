@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,13 +10,15 @@ import ListItem from '@mui/material/ListItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import InputLabel from '@mui/material/InputLabel';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { SidebarData } from './SidebarData';
 import { Link } from 'react-router-dom';
-import { Colors } from '../Styles/Styles';
 
 const drawerWidth = 240;
 
 export default function ResponsiveSidebar(props, { pageComponent }) {
+
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -24,14 +26,44 @@ export default function ResponsiveSidebar(props, { pageComponent }) {
         setMobileOpen(!mobileOpen);
     };
 
-    const { primary, light, dark, lightDark } = Colors;
+    //nightmode functionality
+    let [nightMode, setNightMode] = useState(false);
+    nightMode === true ? document.body.classList.add('dark-theme') : document.body.classList.remove('dark-theme');
+
+    //nightmode function
+    const addNightModeToBody = () => {
+        nightMode === true ? setNightMode(false) : setNightMode(true);
+    }
 
     const drawer = (
         <div>
-            <Toolbar />
+            <Toolbar>
+                <Box component='div' sx={{ display: 'flex', alignItems: 'center' }}>
+                    <InputLabel className='dark-mode-label' sx={{ p: 2, cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1 }}>NightMode
+                        <Box
+                            component='span'
+                            className='dark-mode-icon'
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                backgroundColor: '#efefef',
+                                borderRadius: '50%',
+                                p: 1
+                            }}>
+                            <input type='checkbox' onChange={addNightModeToBody} />
+                            <DarkModeIcon sx={{ position: 'absolute', borderRadius: '50%', p: 1, fontSize: '2rem' }} />
+                        </Box>
+                    </InputLabel>
+                </Box>
+            </Toolbar>
             <Divider />
             <List
-                sx={{ border: 'none', p: 0 }}
+                sx={{
+                    border: 'none',
+                    p: 0,
+                    backgroundColor: 'transparent'
+                }}
             >
                 {
                     //sidebar datat bemappelem
@@ -111,7 +143,7 @@ export default function ResponsiveSidebar(props, { pageComponent }) {
                     variant="permanent"
                     sx={{
                         display: { xs: 'none', sm: 'block' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, backgroundColor: 'transparent' },
                     }}
                     open
                 >
