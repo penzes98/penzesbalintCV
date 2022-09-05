@@ -145,7 +145,7 @@ export default function ResponsiveSidebar(props, { pageComponent }) {
                     variant="permanent"
                     sx={{
                         display: { xs: 'none', sm: 'block' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, backgroundColor: 'transparent' },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, backgroundColor: 'transparent', overflow: 'hidden' },
                     }}
                     open
                 >
