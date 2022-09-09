@@ -15,14 +15,9 @@
 
 .card{
   background-color: gray;
-  margin:10px;
   width: 400px;
   box-shadow: 20px 28px rgba(0, 0, 0, 0.19);
-}
-.cards{
-  display:flex;
-  justify-content:center;
-  width: 100%;
+  transition: all .2s ease;
 }
 h1{
   text-decoration: underline;
@@ -173,9 +168,6 @@ a {
   .dark-theme .MuiDrawer-paper {
     background-color: var(--dark-color);
   }
-  .cards{
-    display: block;
-  }
 
 }
 
@@ -211,6 +203,16 @@ a {
 
 .dark-theme hr {
   border-color: var(--black-color);
+}
+
+.dark-theme .card {
+  border: 1px solid var(--black-color);
+  background-color: var(--dark-color);
+  color: var(--dark-light-color);
+}
+
+.dark-theme .card ul li {
+  color: var(--dark-light-color);
 }
 
 .dark-theme footer {

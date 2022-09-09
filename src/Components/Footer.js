@@ -10,9 +10,9 @@ const Footer = () => {
                 borderTop: '1px solid rgba(0, 0, 0, 0.12)',
                 padding: 3,
                 textAlign: { xs: 'center', sm: 'right' },
-                
+                mt: 4,
                 bottom: 0
-                
+
             }}
         >
             <Typography paragraph={true} sx={{ m: 0 }}>Pénzes Bálint &copy; 2022</Typography>

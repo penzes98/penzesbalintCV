@@ -1,13 +1,7 @@
-import { Box } from '@mui/material';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 import React from 'react';
-import '../App.css';
-import Bgszc from '../pictures/bgszc.png';
-import Bme from '../pictures/bme.png';
-import Nsjg from '../pictures/nsjg.png'
+import { Box } from '@mui/material';
+import SchoolCard from '../Components/SchoolCard';
+import { SchoolCardDatas } from '../Constants/SchoolCardsData';
 import { SectionStyle } from '../Styles/Styles';
 
 function Schools() {
@@ -21,63 +15,32 @@ function Schools() {
       }}
     >
       <h1>Schools</h1>
-      <div className='cards'>
-      <Card className="card">
-        <CardMedia
-          component="img"
-          alt="BME"
-          height="140"
-          image={Bme}
-        />
-        <CardContent>
-          <Typography >
-            Budapest University of Technology <br/>(2019 - prresent)
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            <ul>
-              <li>Faculty of Electrical Engineering and Informatics</li>
-              <li>Computer Science Operational Engineering</li>
-            </ul>
-        </Typography>
-        </CardContent>
-      </Card>
-      <Card className="card">
-        <CardMedia
-          component="img"
-          height="140"
-          image= {Bgszc}
-        />
-        <CardContent>
-          <Typography>
-            BGSZC Downtown Economic School <br/> (2017-2019)
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            <ul>
-              <li>OKJ training </li>
-              <li>Economic informatics</li>
-            </ul>
-        </Typography>
-        </CardContent>
-      </Card>
-      <Card className="card">
-        <CardMedia
-          component="img"
-          alt="NSJG"
-          height="140"
-          image={Nsjg}
-        />
-        <CardContent>
-          <Typography>
-          Nagy Sándor József Secondary School, Budakeszi <br/> (2013-2017)
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            <ul>
-              <li>Raised IT department</li>
-            </ul>
-        </Typography>
-        </CardContent>
-      </Card>
-      </div>
+      <Box
+        className='cards'
+        sx={{
+          display: { xs: 'flex', md: 'grid' },
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          flexDirection: 'column',
+          gap: { xs: 4, md: 2 },
+          width: '100%'
+        }}>
+
+        {
+          SchoolCardDatas.map(schoolCard => {
+
+            return (
+              <SchoolCard
+                imgAlt={schoolCard.imgAlt}
+                imgHeight='140'
+                imgSrc={schoolCard.imgSrc}
+                cardH4={schoolCard.title}
+                cardListElements={schoolCard.liEls}
+              />
+            )
+          })
+        }
+
+      </Box>
     </Box>
 
   )
