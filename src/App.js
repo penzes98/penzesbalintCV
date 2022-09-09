@@ -14,7 +14,6 @@ function App() {
   return (
     <>
       <ResponsiveSidebar pageComponent={location} />
-      {/* <Sidebar /> */}
 
       <Routes location={location}>
         <Route path='/home' element={<Home />} />
@@ -22,7 +21,7 @@ function App() {
         <Route path='/experiences' element={<Experiences />} />
         <Route path='/about-me' element={<AboutMe />} />
       </Routes>
-
+      
       <Footer />
     </>
   );
