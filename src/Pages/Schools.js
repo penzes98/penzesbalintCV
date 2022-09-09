@@ -18,10 +18,11 @@ function Schools() {
       <Box
         className='cards'
         sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
-          gap: 2,
-
+          display: { xs: 'flex', md: 'grid' },
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          flexDirection: 'column',
+          gap: { xs: 4, md: 2 },
+          width: '100%'
         }}>
 
         {

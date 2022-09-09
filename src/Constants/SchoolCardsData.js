@@ -5,7 +5,7 @@ import Nsjg from '../pictures/nsjg.png'
 export const SchoolCardDatas = [
 
     {
-        title: 'Budapest University of Technology (2019 - prresent)',
+        title: 'Budapest University of Technology (2019 - present)',
         liEls: [
             'Faculty of Electrical Engineering and Informatics',
             'Computer Science Operational Engineering'],
